@@ -30,7 +30,8 @@ def get_repos_from_github():
     # `gh repo list --json` takes fields that are documented on:
     # https://docs.github.com/en/graphql/reference/objects#repository
     try:
-        result = subprocess.run(["gh", 'repo', 'list', '--limit', '999', '--json',
+        result = subprocess.run(["gh", 'repo', 'list', '--json',
+      # result = subprocess.run(["gh", 'repo', 'list', '--limit', '999', '--json',
                                 'name,sshUrl,isPrivate,isFork,isArchived'],
                                 stdout=subprocess.PIPE)
         repos = result.stdout.decode('utf-8')
